@@ -1,3 +1,7 @@
+
+/**
+ * Create a random plant with size and color.
+ */
 export function planetGenerator () {
   const minSize = 100
   const maxSize = 300
@@ -13,10 +17,14 @@ export function planetGenerator () {
   return { size, color };
 }
 
-export function addSvgToRandomLocation(svgUrl, containerId) {
-  if (!containerId) return
-  
+/**
+ * Insert a SVG in a random location of the container.
+ * @param {string} svgUrl - Path or url to SVG image.
+ */
+export function addSvgToRandomLocation(svgUrl) {
+  const containerId = 'planet-container'
   const container = document.getElementById(containerId);
+  if (!container) return
 
   const img = document.createElement('img');
 
