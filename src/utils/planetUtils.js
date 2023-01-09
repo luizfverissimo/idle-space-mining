@@ -24,6 +24,7 @@ export function planetGenerator () {
 export function addSvgToRandomLocation(svgUrl) {
   const containerId = 'planet-container'
   const container = document.getElementById(containerId);
+  
   if (!container) return
 
   const img = document.createElement('img');

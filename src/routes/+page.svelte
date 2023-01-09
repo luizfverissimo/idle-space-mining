@@ -1,37 +1,37 @@
 <script>
-	import { ships, build } from "../stores/gameLogic";
-	import MoneyCard from "../components/MoneyCard.svelte";
-  import { planetGenerator } from "../utils/planetUtils";
+	import { addSvgToRandomLocation } from '../utils/planetUtils';
+	import { planet, ships } from '../stores/gameLogic';
+	import { onMount } from 'svelte';
 
-  const planet = planetGenerator()
+	/** @type {Array<{ id: number; baseCost: number; exponent: number; level: number; increment: number; shipImage: string; name: string; }>} */
+	let shipsAccess
+	ships.subscribe(ships => {
+		shipsAccess = ships
+	})
 
-  let progressTimerValue = 0
+	function renderShips () {
+		shipsAccess.forEach(ship => {
+			if(ship.level === 0) return
 
-  setInterval(() => {
-    if (progressTimerValue >= 100) {
-      progressTimerValue = 0
-      return
-    }
-    progressTimerValue += 1
-  }, 10)
+			let counter = 1
+			do {
+				counter++
+				addSvgToRandomLocation(ship.shipImage)
+			} while (counter <= ship.level)
+		})
+	}
 
-
+	onMount(() => {
+		renderShips()
+	})
 </script>
 
-<MoneyCard />
-
-<div id='planet-container' class="w-full flex flex-col items-center justify-center h-[400px] flex-1 relative">
-  <div
-    class='rounded-full'
-    style={`width: ${planet.size}px; height: ${planet.size}px; background-color: ${planet.color};`}  
-  />
+<div
+	id="planet-container"
+	class="w-full flex flex-col items-center justify-center h-[400px] flex-1 relative"
+>
+	<div
+		class="rounded-full shadow-2xl"
+		style={`width: ${planet.size}px; height: ${planet.size}px; background-color: ${planet.color};`}
+	/>
 </div>
-
-<div class="flex flex-wrap justify-center gap-2">
-  <button class="btn" on:click={() => build(ships[0])}>build small ship</button>
-  <button class="btn" on:click={() => build(ships[1])}>build medium ship</button>
-  <button class="btn" on:click={() => build(ships[2])}>build heavy ship</button>
-  <button class="btn" on:click={() => build(ships[3])}>build Orbital refinery</button>
-  <button class="btn" on:click={() => build(ships[4])}>build Stelar refinery</button>
-</div>
-  

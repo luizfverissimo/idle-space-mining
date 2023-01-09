@@ -5,7 +5,8 @@ export const shipsInfos = [
 		exponent: 1.15,
 		level: 0,
 		increment: 10,
-		shipImage: '/small-miner.svg'
+		shipImage: '/small-miner.svg',
+		name: 'Small Miner'
 	},
 	{
 		id: 2,
@@ -13,7 +14,8 @@ export const shipsInfos = [
 		exponent: 1.20,
 		level: 0,
 		increment: 50,
-		shipImage: '/medium-miner.svg'
+		shipImage: '/medium-miner.svg',
+		name: 'Medium Miner'
 	},
 	{
 		id: 3,
@@ -21,7 +23,8 @@ export const shipsInfos = [
 		exponent: 1.25,
 		level: 0,
 		increment: 250,
-		shipImage: '/heavy-miner.svg'
+		shipImage: '/heavy-miner.svg',
+		name: 'Heavy Miner'
 	},
 	{
 		id: 4,
@@ -29,7 +32,8 @@ export const shipsInfos = [
 		exponent: 1.3,
 		level: 0,
 		increment: 500,
-		shipImage: '/orbital-refinery.svg'
+		shipImage: '/orbital-refinery.svg',
+		name: 'Orbital Refinery'
 	},
 	{
 		id: 5,
@@ -37,6 +41,7 @@ export const shipsInfos = [
 		exponent: 1.35,
 		level: 0,
 		increment: 1000,
-		shipImage: '/stelar-refinery.svg'
+		shipImage: '/stelar-refinery.svg',
+		name: 'Stelar Refinery'
 	},
 ]

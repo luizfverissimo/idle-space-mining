@@ -1,9 +1,18 @@
-import { addSvgToRandomLocation } from '../utils/planetUtils'
+import { planetGenerator } from '../utils/planetUtils'
 import { writable } from  'svelte/store'
 import { shipsInfos } from '../data/ships'
 
+export const planet = planetGenerator()
+
 const incrementalTimeInterval = 1000
-export let ships = shipsInfos
+
+
+export const ships = writable(shipsInfos)
+/** @type {Array<{ id: number; baseCost: number; exponent: number; level: number; increment: number; shipImage: string; name: string; }>} */
+let shipsAccess
+ships.subscribe(ships => {
+	shipsAccess = ships
+})
 
 export const money = writable(100)
 /** @type {number} */
@@ -36,7 +45,7 @@ setInterval(() => {
  * @param {number} ship.level
  * @param {number} ship.exponent
  */
-function getBuildCost(ship) {
+export function getBuildCost(ship) {
 	return Math.floor(ship.baseCost * Math.pow(ship.level + 1, ship.exponent))
 }
 
@@ -55,6 +64,7 @@ function canAfford(cost) {
  * @param {number} ship.increment
  * @param {number} ship.id
  * @param {string} ship.shipImage
+ * @param {string} ship.name
  */
 export function build(ship) {
 	const cost = getBuildCost(ship)
@@ -63,16 +73,15 @@ export function build(ship) {
 
 		ship.level +=1 
 		incrementAmount.update(increment => increment += ship.increment)
-		addSvgToRandomLocation(ship.shipImage) 
 
-		const updatedShips = ships.map((shipOutdated) => {
+		const updatedShips = shipsAccess.map((shipOutdated) => {
 			if(shipOutdated.id === ship.id) {
 				return ship
 			}
 			return shipOutdated
 		})
 
-		ships = updatedShips
+		ships.update(ships => ships = updatedShips)
 	} else {
 		console.log("Not enough resources");
 	}
