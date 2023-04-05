@@ -2,10 +2,9 @@ import { planetGenerator } from '../utils/planetUtils'
 import { writable } from  'svelte/store'
 import { shipsInfos } from '../data/ships'
 
-export const planet = planetGenerator()
+export const planet = writable(planetGenerator())
 
 const incrementalTimeInterval = 1000
-
 
 export const ships = writable(shipsInfos)
 /** @type {Array<{ id: number; baseCost: number; exponent: number; level: number; increment: number; shipImage: string; name: string; }>} */
@@ -28,6 +27,7 @@ incrementAmount.subscribe(incrementAmount => {
 	incrementAmountAccess = incrementAmount
 })
 
+export const notBoughtShipId = writable(0)
 /**
  * @param {number} amount - Amount to increment the total money.
  */
@@ -83,6 +83,9 @@ export function build(ship) {
 
 		ships.update(ships => ships = updatedShips)
 	} else {
-		console.log("Not enough resources");
+		notBoughtShipId.update(shipId => shipId = ship.id)
+		setTimeout(() => {
+			notBoughtShipId.update(shipId => shipId = 0)
+		}, 600)
 	}
 }

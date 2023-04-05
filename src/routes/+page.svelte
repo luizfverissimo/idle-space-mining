@@ -3,14 +3,8 @@
 	import { planet, ships } from '../stores/gameLogic';
 	import { onMount } from 'svelte';
 
-	/** @type {Array<{ id: number; baseCost: number; exponent: number; level: number; increment: number; shipImage: string; name: string; }>} */
-	let shipsAccess
-	ships.subscribe(ships => {
-		shipsAccess = ships
-	})
-
-	function renderShips () {
-		shipsAccess.forEach(ship => {
+	export function renderShips () {
+		$ships.forEach(ship => {
 			if(ship.level === 0) return
 
 			let counter = 1
@@ -32,6 +26,6 @@
 >
 	<div
 		class="rounded-full shadow-2xl"
-		style={`width: ${planet.size}px; height: ${planet.size}px; background-color: ${planet.color};`}
+		style={`width: ${$planet.size}px; height: ${$planet.size}px; background-color: ${$planet.color};`}
 	/>
 </div>

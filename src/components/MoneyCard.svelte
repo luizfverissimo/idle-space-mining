@@ -28,5 +28,5 @@
 <div class="flex flex-col items-center gap-2 mt-4 bg-neutral w-fit mx-auto p-4 rounded-lg">
   <h2 class="font-exo font-black text-primary text-4xl">$ {moneyValue}</h2>
   <progress class="progress progress-primary w-56" value={progressTimerValue} max="100"></progress>
-  <span class="font-exo text-primary"> $ {incrementAmountValue} /sec</span>
+  <span class="font-exo text-primary"> $ {abbreviateNumber(incrementAmountValue)} /sec</span>
 </div>
