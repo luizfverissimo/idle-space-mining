@@ -1,38 +1,49 @@
-# create-svelte
+<p align="center">
+  <img src="/static/android-chrome-192x192.png" width="100px"/>
+</p>
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+<h1 align="center">Welcome to Idle Space Mining 👋</h1>
+<p>
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+</p>
 
-## Creating a project
+> An incremental idle game created with Svelte Kit, Tailwind CSS and DaisyUI.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Screenshots
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+<img src="/static/2.png" alt="Screenshot 2" height="500"/> <img src="/static/1.png" alt="Screenshot 1" height="500"/>
 
-# create a new project in my-app
-npm create svelte@latest my-app
+### 🏠 [Homepage](idle-space-mining.vercel.app)
+
+### ✨ [Demo](idle-space-mining.vercel.app)
+
+## Install
+
+```sh
+npm install
 ```
 
-## Developing
+## Usage
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
+```sh
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+## Author
 
-To create a production version of your app:
+[<img alt="Logo LF Verissimo - Front-end Developer" src="https://github.com/luizfverissimo/luizfverissimo/blob/8604eedb8ecf5eeb23f8ffae63cfdf8eba6513c3/banner.png?raw=true" />](https://lfverissimo.com)
 
-```bash
-npm run build
-```
+👤 **LF Veríssimo**
 
-You can preview the production build with `npm run preview`.
+* Website: https://lfverissimo.com
+* Github: [@luizfverissimo](https://github.com/luizfverissimo)
+* LinkedIn: [@lfverissimo](https://linkedin.com/in/lfverissimo)
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
