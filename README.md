@@ -31,6 +31,12 @@ npm install
 npm run dev
 ```
 
+## Next steps
+
+- [ ] Create new game logic.
+- [ ] Create prestige system.
+
+
 ## Author
 
 [<img alt="Logo LF Verissimo - Front-end Developer" src="https://github.com/luizfverissimo/luizfverissimo/blob/8604eedb8ecf5eeb23f8ffae63cfdf8eba6513c3/banner.png?raw=true" />](https://lfverissimo.com)
